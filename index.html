@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss You..</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sorry Hou..</h1>
+        <p id="emojiContainer">Sorry😭</p>
+    </div>
+
+    <script >
+        const emojiContainer = document.getElementById('emojiContainer');
+let intervalId;
+let generating = false;
+
+// Function to add the emoji
+function addEmoji() {
+    emojiContainer.textContent += '😭';
+}
+
+// Function to toggle the generation of emojis
+function toggleEmojiGeneration() {
+    if (!generating) {
+        intervalId = setInterval(addEmoji, 100);  // Start generating emojis
+        generating = true;
+    } else {
+        clearInterval(intervalId);  // Stop generating emojis
+        generating = false;
+    }
+}
+
+// Listen for clicks on the entire body to start/stop emoji generation
+document.body.addEventListener('click', toggleEmojiGeneration);
+
+    </script>
+</body>
+</html>
